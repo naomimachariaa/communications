@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C*I Communications Intelligence</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-dark: #0b1324;
+            --accent-gold: #f4a62a;
+            --text-grey: #8a94a6;
+            --bg-light: #f8f9fa;
+            --bg-lighter: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Utility Classes */
+        .text-gold { color: var(--accent-gold) !important; }
+        .text-primary-dark { color: var(--primary-dark) !important; }
+        .bg-dark-blue { background-color: var(--primary-dark) !important; color: white; }
+        .section-padding { padding: 100px 0; }
+        
+        .small-caps {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            font-weight: 600;
+            border-radius: 50px;
+            padding: 0.6rem 1.5rem;
+            border: 2px solid var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background-color: transparent;
+            color: var(--accent-gold);
+        }
+        
+        .btn-outline-light-custom {
+            background-color: transparent;
+            color: white;
+            font-weight: 500;
+            border-radius: 50px;
+            padding: 0.6rem 1.5rem;
+            border: 1px solid rgba(255,255,255,0.5);
+            transition: all 0.3s ease;
+        }
+        .btn-outline-light-custom:hover {
+            background-color: white;
+            color: var(--primary-dark);
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--primary-dark);
+            padding: 1.5rem 0;
+        }
+        .navbar-brand .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .navbar-brand .logo-subtext {
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            opacity: 0.8;
+        }
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+        }
+        .nav-link:hover {
+            color: white !important;
+        }
+        .nav-link.active {
+            color: white !important;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            background-color: var(--primary-dark);
+            overflow: hidden;
+        }
+        .hero-bg-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1618044733300-9472054094ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80') no-repeat center right / cover;
+            opacity: 0.4;
+            mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+        }
+
+        /* Expertise Section */
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border: 1px solid var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Approach Section */
+        .approach-img {
+            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center / cover;
+            min-height: 100%;
+        }
+
+        /* Selected Work */
+        .work-card {
+            border: none;
+            background: transparent;
+        }
+        .work-card img {
+            border-radius: 0;
+            margin-bottom: 1.5rem;
+            height: 250px;
+            object-fit: cover;
+        }
+        .link-gold {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+        }
+        .link-gold:hover {
+            color: #d98f1d;
+        }
+
+        /* Footer */
+        .footer-social-icon {
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            text-decoration: none;
+        }
+        .footer-social-icon:hover {
+            color: var(--accent-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center text-white" href="#" target="_blank">
+                <span class="logo-text me-3">C<span style="color:var(--accent-gold)">|</span>I</span>
+                <div class="logo-subtext text-uppercase">
+                    Communications<br>Intelligence
+                </div>
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#" target="_blank">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" target="_blank">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" target="_blank">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" target="_blank">Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" target="_blank">Insights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" target="_blank">Contact</a></li>
+                </ul>
+                <div class="d-none d-lg-block">
+                    <a href="#" target="_blank" class="btn btn-gold">Get in Touch <i class="fas fa-arrow-right ms-1" style="font-size: 0.8rem;"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section section-padding d-flex align-items-center" style="min-height: 100vh; padding-top: 150px;">
+        <div class="hero-bg-overlay d-none d-lg-block"></div>
+        <div class="container position-relative z-1">
+            <div class="row">
+                <div class="col-lg-7">
+                    <p class="small-caps text-secondary mb-4">Communications &middot; Strategy &middot; Intelligence</p>
+                    <h1 class="display-4 fw-bold text-white mb-4 lh-sm">
+                        Communication is<br>more than a message.<br>
+                        <span class="text-gold">It's intelligence<br>in action.</span>
+                    </h1>
+                    <p class="text-light mb-5 fs-5" style="max-width: 600px; opacity: 0.8;">
+                        We bridge the gap between traditional communication and modern strategy  connecting data, technology, culture and human insight to help organizations navigate complexity and grow.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#" target="_blank" class="btn btn-gold">Explore Our Expertise <i class="fas fa-arrow-right ms-2"></i></a>
+                        <a href="#" target="_blank" class="btn btn-outline-light-custom">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 01 Our Expertise Section -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="row mb-5 align-items-end">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <p class="small-caps text-secondary mb-3">01 &mdash; Our Expertise</p>
+                    <h2 class="display-5 fw-bold text-primary-dark mb-0">Connected thinking.<br>Strategic impact.</h2>
+                </div>
+                <div class="col-lg-5 ms-auto">
+                    <p class="text-muted fs-5 mb-0">
+                        We bring together the best of communications, strategy, technology and data to help you build stronger narratives, stronger relationships and a stronger future.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row g-5 mt-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="icon-circle"><i class="fas fa-search"></i></div>
+                    <h4 class="fw-bold mb-3 fs-5">Strategic Diagnostics</h4>
+                    <p class="text-muted">We examine your communication ecosystem to identify gaps, positioning issues and reputation challenges before prescribing solutions.</p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="icon-circle"><i class="fas fa-network-wired"></i></div>
+                    <h4 class="fw-bold mb-3 fs-5">Connected Strategy</h4>
+                    <p class="text-muted">We align fragmented messaging into a unified narrative across audiences, channels and stakeholders.</p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="icon-circle"><i class="far fa-user"></i></div>
+                    <h4 class="fw-bold mb-3 fs-5">Executive & Founder Intelligence</h4>
+                    <p class="text-muted">We help leaders build strong executive positioning, thought leadership and personal communication systems.</p>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="icon-circle"><i class="fas fa-microchip"></i></div>
+                    <h4 class="fw-bold mb-3 fs-5">Communication Transformation</h4>
+                    <p class="text-muted">We integrate modern workflows, AI and data-driven measurement to future-proof how your organization communicates.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02 Our Approach Section -->
+    <section class="bg-dark-blue">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-7 px-4 px-lg-5 py-5 section-padding">
+                    <div class="pe-lg-5" style="max-width: 800px; margin: 0 auto;">
+                        <p class="small-caps text-secondary mb-3">02 &mdash; Our Approach</p>
+                        <h2 class="display-5 fw-bold text-white mb-4">Why collaborate<br>with us?</h2>
+                        <p class="text-light fs-5 mb-5" style="opacity: 0.8;">
+                            We look beyond isolated communication activities to understand the bigger picture, connect the right insights and build strategies that adapt as the world changes.
+                        </p>
+                        
+                        <div class="row mt-5 g-4">
+                            <div class="col-sm-4 border-start border-secondary ps-4">
+                                <h5 class="text-gold fw-bold mb-3">Connected</h5>
+                                <p class="text-light small" style="opacity: 0.8;">We unify PR, marketing, digital and internal communications.</p>
+                            </div>
+                            <div class="col-sm-4 border-start border-secondary ps-4">
+                                <h5 class="text-gold fw-bold mb-3">Intelligent</h5>
+                                <p class="text-light small" style="opacity: 0.8;">We leverage research, data and human judgement to ensure every message is informed and purposeful.</p>
+                            </div>
+                            <div class="col-sm-4 border-start border-secondary ps-4">
+                                <h5 class="text-gold fw-bold mb-3">Adaptive</h5>
+                                <p class="text-light small" style="opacity: 0.8;">We build living systems designed to sense market changes and respond swiftly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="approach-img"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03 Selected Work Section -->
+    <section class="section-padding" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end mb-5">
+                <div>
+                    <p class="small-caps text-secondary mb-2">03 &mdash; Selected Work</p>
+                    <h2 class="display-6 fw-bold text-primary-dark mb-0">Strategy in practice.</h2>
+                </div>
+                <div class="d-none d-md-block">
+                    <a href="#" target="_blank" class="link-gold">A glimpse of how we turn insight into impact. <span class="border-bottom border-warning pb-1 ms-3">View all work <i class="fas fa-arrow-right ms-1" style="font-size: 0.8rem;"></i></span></a>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-2">
+                <!-- Card 1 -->
+                <div class="col-md-4">
+                    <div class="card work-card">
+                        <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Brand Strategy">
+                        <div class="card-body p-0">
+                            <h5 class="fw-bold text-primary-dark">Brand & Reputation Strategy</h5>
+                            <p class="text-muted small mb-3">Repositioning a global organization for a more trusted tomorrow.</p>
+                            <a href="#" target="_blank" class="link-gold">View case study <i class="fas fa-arrow-right ms-1" style="font-size: 0.8rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col-md-4">
+                    <div class="card work-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Research">
+                        <div class="card-body p-0">
+                            <h5 class="fw-bold text-primary-dark">Research & Intelligence</h5>
+                            <p class="text-muted small mb-3">Turning complex data into actionable insights.</p>
+                            <a href="#" target="_blank" class="link-gold">View case study <i class="fas fa-arrow-right ms-1" style="font-size: 0.8rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col-md-4">
+                    <div class="card work-card">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Digital Comms">
+                        <div class="card-body p-0">
+                            <h5 class="fw-bold text-primary-dark">Digital Communications</h5>
+                            <p class="text-muted small mb-3">Building a unified digital presence across global markets.</p>
+                            <a href="#" target="_blank" class="link-gold">View case study <i class="fas fa-arrow-right ms-1" style="font-size: 0.8rem;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04 & 05 Insights & Testimonials Section -->
+    <section class="section-padding" style="background-color: #f1f3f5;">
+        <div class="container">
+            <div class="row">
+                <!-- Insights -->
+                <div class="col-lg-6 mb-5 mb-lg-0 border-end border-secondary border-opacity-25 pe-lg-5">
+                    <p class="small-caps text-secondary mb-3">04 &mdash; Insights</p>
+                    <h2 class="display-6 fw-bold text-primary-dark mb-3">Ideas. Analysis. Impact.</h2>
+                    <p class="text-muted fs-6 mb-4">Thoughts on communication, technology, brand and the changing world.</p>
+                    <a href="#" target="_blank" class="link-gold">Explore our blog <i class="fas fa-arrow-right ms-1" style="font-size: 0.8rem;"></i></a>
+                </div>
+                
+                <!-- Testimonials -->
+                <div class="col-lg-6 ps-lg-5 position-relative">
+                    <p class="small-caps text-secondary mb-3">05 &mdash; Testimonials</p>
+                    <blockquote class="fs-4 text-primary-dark fst-italic mb-4" style="line-height: 1.4;">
+                        "Their strategic thinking and deep understanding of our industry made a real difference. We saw measurable impact in our brand and engagement."
+                    </blockquote>
+                    <div class="d-flex align-items-center">
+                        <div style="width: 20px; height: 2px; background-color: var(--accent-gold); margin-right: 15px;"></div>
+                        <div>
+                            <h6 class="fw-bold text-primary-dark mb-0">Sarah Mitchell</h6>
+                            <p class="text-muted small mb-0">Chief Marketing Officer, Horizon Group</p>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Dots & Arrows -->
+                    <div class="position-absolute top-0 end-0 mt-2 me-3 d-none d-md-block">
+                        <a href="#" target="_blank" class="text-muted me-3"><i class="fas fa-arrow-left"></i></a>
+                        <a href="#" target="_blank" class="text-muted"><i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="mt-4 text-end d-none d-md-block">
+                        <span class="d-inline-block rounded-circle bg-warning" style="width: 6px; height: 6px; margin: 0 3px;"></span>
+                        <span class="d-inline-block rounded-circle bg-secondary opacity-25" style="width: 6px; height: 6px; margin: 0 3px;"></span>
+                        <span class="d-inline-block rounded-circle bg-secondary opacity-25" style="width: 6px; height: 6px; margin: 0 3px;"></span>
+                        <span class="d-inline-block rounded-circle bg-secondary opacity-25" style="width: 6px; height: 6px; margin: 0 3px;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-blue pt-5 pb-4">
+        <div class="container">
+            <div class="row border-bottom border-secondary border-opacity-50 pb-5 mb-4 align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <h2 class="fw-bold text-white mb-0" style="font-size: 2.2rem;">Let's build a smarter communication strategy.</h2>
+                </div>
+                <div class="col-lg-3 text-lg-center mb-4 mb-lg-0">
+                    <a href="#" target="_blank" class="btn btn-gold">Get in Touch <i class="fas fa-arrow-right ms-2"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <div class="d-flex flex-column align-items-lg-end gap-2 text-light small">
+                        <p class="mb-0"><i class="far fa-envelope me-2 text-secondary"></i> hello@ci-firm.com</p>
+                        <p class="mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> London, UK</p>
+                        <div>
+                            <a href="#" target="_blank" class="footer-social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" target="_blank" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" target="_blank" class="footer-social-icon"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <a href="#" target="_blank" class="text-secondary small text-decoration-none text-uppercase" style="letter-spacing: 1px;">Communications Intelligence</a>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-inline mb-0 text-md-end">
+                        <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">Home</a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">About</a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">Services</a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">Work</a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">Insights</a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
