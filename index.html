@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C*I Communications Intelligence</title>
+    <title>Millimark Communications</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -74,18 +74,12 @@
         /* Navbar */
         .navbar {
             background-color: var(--primary-dark);
-            padding: 1.5rem 0;
+            padding: 1rem 0; /* Adjusted padding to accommodate logo */
         }
-        .navbar-brand .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        .navbar-brand .logo-subtext {
-            font-size: 0.6rem;
-            letter-spacing: 2px;
-            line-height: 1.2;
-            opacity: 0.8;
+        .navbar-brand img {
+            /* This property helps the logo blend into the dark background */
+            mix-blend-mode: screen; 
+            object-fit: contain;
         }
         .nav-link {
             color: rgba(255,255,255,0.8) !important;
@@ -188,11 +182,9 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center text-white" href="#" target="_blank">
-                <span class="logo-text me-3">C<span style="color:var(--accent-gold)">|</span>I</span>
-                <div class="logo-subtext text-uppercase">
-                    Communications<br>Intelligence
-                </div>
+            <a class="navbar-brand text-white" href="#" target="_blank">
+                <!-- Using the provided Millimark logo image -->
+                <img src="millmark.jpeg" alt="Millimark Logo" height="60">
             </a>
             <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <i class="fas fa-bars text-white"></i>
@@ -202,12 +194,12 @@
                     <li class="nav-item"><a class="nav-link active" href="#" target="_blank">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#" target="_blank">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="services.html" target="_blank">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" target="_blank">Work</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" target="_blank">Insights</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" target="_blank">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="work.html" target="_blank">Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="insights.html" target="_blank">Insights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" target="_blank">Contact</a></li>
                 </ul>
                 <div class="d-none d-lg-block">
-                    <a href="#" target="_blank" class="btn btn-gold">Get in Touch <i class="fas fa-arrow-right ms-1" style="font-size: 0.8rem;"></i></a>
+                    <a href="contact.html" target="_blank" class="btn btn-gold">Get in Touch <i class="fas fa-arrow-right ms-1" style="font-size: 0.8rem;"></i></a>
                 </div>
             </div>
         </div>
@@ -225,9 +217,9 @@
                         <span class="text-gold">that move <br> business forward.</span>
                     </h1>
                     <p class="text-light mb-5 fs-5" style="max-width: 600px; opacity: 0.8;">
-                       Millimark Kenya works with businesses and organisations to sharpen strategic direction, strengthen communication and identify smarter ways to turn priorities into action.<br><br>
-
-We bring strategic thinking, clear communication and purposeful technology together to help organisations navigate complexity and move forward with intent
+                        Millimark Kenya works with businesses and organisations to sharpen strategic direction, strengthen communication and identify smarter ways to turn priorities into action.<br><br>
+                        We bring strategic thinking, clear communication and purposeful technology together to help organisations navigate complexity and move forward with intent.
+                    </p>
                     <div class="d-flex flex-wrap gap-3">
                         <a href="#" target="_blank" class="btn btn-gold">Explore Our Expertise <i class="fas fa-arrow-right ms-2"></i></a>
                         <a href="#" target="_blank" class="btn btn-outline-light-custom">Get in Touch</a>
@@ -430,13 +422,13 @@ We bring strategic thinking, clear communication and purposeful technology toget
             
             <div class="row align-items-center">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <a href="#" target="_blank" class="text-secondary small text-decoration-none text-uppercase" style="letter-spacing: 1px;">Communications Intelligence</a>
+                    <a href="#" target="_blank" class="text-secondary small text-decoration-none text-uppercase" style="letter-spacing: 1px;">Millimark Communications</a>
                 </div>
                 <div class="col-md-6">
                     <ul class="list-inline mb-0 text-md-end">
                         <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">Home</a></li>
                         <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">About</a></li>
-                        <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">Services</a></li>
+                        <li class="list-inline-item"><a href="services.html" target="_blank" class="text-secondary text-decoration-none small mx-2">Services</a></li>
                         <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">Work</a></li>
                         <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">Insights</a></li>
                         <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">Contact</a></li>

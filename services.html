@@ -60,12 +60,11 @@
         /* Navbar */
         .navbar {
             background-color: var(--primary-dark);
-            padding: 1.5rem 0;
+            padding: 1rem 0;
         }
-        .navbar-brand .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+        .navbar-brand img {
+            mix-blend-mode: screen; 
+            object-fit: contain;
         }
         .navbar-brand .logo-subtext {
             font-size: 0.6rem;
@@ -103,7 +102,7 @@
             min-height: 45vh;
             display: flex;
             align-items: center;
-            padding-top: 80px; /* Accounts for fixed navbar */
+            padding-top: 80px;
             overflow: hidden;
         }
         .header-bg-overlay {
@@ -156,6 +155,10 @@
         }
 
         /* Footer */
+        .footer-logo {
+            mix-blend-mode: screen; 
+            object-fit: contain;
+        }
         .footer-social-icon {
             color: white;
             font-size: 1.2rem;
@@ -172,13 +175,9 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center text-white" href="index.html">
-               <a class="navbar-brand" href="index.html">
-    <img src="Millimark logo.png" alt="Millimark" height="45">
-</a>
-                <div class="logo-subtext text-uppercase">
-                    Communications<br>Intelligence
-                </div>
+            <a class="navbar-brand d-flex align-items-center text-white text-decoration-none" href="index.html">
+                <img src="millmark.jpeg" alt="Millimark" height="60" class="me-3">
+               
             </a>
             <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <i class="fas fa-bars text-white"></i>
@@ -406,11 +405,9 @@
             
             <div class="row align-items-center">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <a href="index.html" class="text-secondary small text-decoration-none text-uppercase" style="letter-spacing: 1px;"><div class="col-md-6 mb-3 mb-md-0">
-    <a href="index.html">
-        <img src="Millimark logo.png" alt="Millimark" height="30">
-    </a>
-</div></a>
+                    <a href="index.html">
+                        <img src="millmark.jpeg" alt="Millimark Logo" height="30" class="footer-logo">
+                    </a>
                 </div>
                 <div class="col-md-6">
                     <ul class="list-inline mb-0 text-md-end">

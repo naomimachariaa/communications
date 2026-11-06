@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Millimark Communications</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-dark: #0b1324;
+            --accent-gold: #f4a62a;
+            --text-grey: #8a94a6;
+            --bg-light: #f8f9fa;
+            --bg-lighter: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            background-color: var(--bg-light);
+        }
+
+        /* Utility Classes */
+        .text-gold { color: var(--accent-gold) !important; }
+        .text-primary-dark { color: var(--primary-dark) !important; }
+        .bg-dark-blue { background-color: var(--primary-dark) !important; color: white; }
+        .section-padding { padding: 100px 0; }
+        
+        .small-caps {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            font-weight: 600;
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background-color: transparent;
+            color: var(--accent-gold);
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--primary-dark);
+            padding: 1rem 0;
+        }
+        .navbar-brand img {
+            mix-blend-mode: screen; 
+            object-fit: contain;
+        }
+        .navbar-brand .logo-subtext {
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            opacity: 0.8;
+        }
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+        }
+        .nav-link:hover {
+            color: white !important;
+        }
+        .nav-link.active {
+            color: white !important;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+
+        /* Inner Page Hero Section */
+        .page-header {
+            position: relative;
+            background-color: var(--primary-dark);
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+        .header-bg-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') no-repeat center center / cover;
+            opacity: 0.15;
+            mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to left, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+        }
+
+        /* Contact Custom Styles */
+        .contact-card {
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-left: 3px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            display: flex;
+            align-items: flex-start;
+        }
+        .contact-icon {
+            color: var(--accent-gold);
+            font-size: 1.8rem;
+            margin-right: 1.5rem;
+            margin-top: 0.2rem;
+        }
+        .contact-link {
+            color: var(--primary-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-link:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Form Styles */
+        .contact-form-wrapper {
+            background: #fff;
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .form-control {
+            border: 1px solid #dee2e6;
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--accent-gold);
+            background-color: #fff;
+        }
+        .form-label {
+            font-weight: 500;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .footer-logo {
+            mix-blend-mode: screen; 
+            object-fit: contain;
+        }
+        .footer-social-icon {
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-social-icon:hover {
+            color: var(--accent-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center text-white text-decoration-none" href="index.html">
+                <img src="millmark.jpeg" alt="Millimark Logo" height="60" class="me-3">
+
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="work.html">Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="insights.html">Insights</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="d-none d-lg-block">
+                    <a href="contact.html" class="btn btn-gold px-4 py-2">Get in Touch <i class="fas fa-arrow-right ms-1" style="font-size: 0.8rem;"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="header-bg-overlay d-none d-lg-block"></div>
+        <div class="container position-relative z-1">
+            <div class="row">
+                <div class="col-lg-8">
+                    <p class="small-caps text-gold mb-3">Get In Touch</p>
+                    <h1 class="display-4 fw-bold text-white mb-4">Contact Us</h1>
+                    <p class="text-light fs-5 mb-0" style="max-width: 650px; opacity: 0.8;">
+                        Ready to sharpen your strategic direction? We are here to help you turn priorities into action.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row g-5">
+                
+                <!-- Contact Information -->
+                <div class="col-lg-5">
+                    <div class="pe-lg-4">
+                        <h3 class="fw-bold text-primary-dark mb-4">Let's start a conversation.</h3>
+                        <p class="text-muted mb-5">Whether you have a specific project in mind or want to learn more about how we can support your organization's goals, reach out to us using the details below.</p>
+                        
+                        <!-- Phone Card -->
+                        <div class="contact-card">
+                            <i class="fas fa-phone-alt contact-icon"></i>
+                            <div>
+                                <h6 class="fw-bold text-primary-dark mb-1">Call Us</h6>
+                                <p class="mb-0 fs-5"><a href="tel:0728016205" class="contact-link">0728 016205</a></p>
+                            </div>
+                        </div>
+
+                        <!-- Email Card -->
+                        <div class="contact-card">
+                            <i class="far fa-envelope contact-icon"></i>
+                            <div>
+                                <h6 class="fw-bold text-primary-dark mb-1">Email Us</h6>
+                                <p class="mb-0 fs-5"><a href="mailto:millimarkkenya@gmail.com" class="contact-link">millimarkkenya@gmail.com</a></p>
+                            </div>
+                        </div>
+
+                        <!-- Instagram Card -->
+                        <div class="contact-card">
+                            <i class="fab fa-instagram contact-icon"></i>
+                            <div>
+                                <h6 class="fw-bold text-primary-dark mb-1">Instagram</h6>
+                                <p class="mb-0 fs-5"><a href="https://instagram.com/Millimark_ke" target="_blank" class="contact-link">@Millimark_ke</a></p>
+                            </div>
+                        </div>
+                        
+                        <!-- Location Card (Keeping consistent with footer location) -->
+                        <div class="contact-card border-left-transparent mt-4" style="border-left-color: #dee2e6; background: transparent; box-shadow: none;">
+                            <i class="fas fa-map-marker-alt contact-icon text-secondary opacity-50"></i>
+                            <div>
+                                <h6 class="fw-bold text-primary-dark mb-1">Location</h6>
+                                <p class="text-muted mb-0">Nairobi, Kenya</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="col-lg-7">
+                    <div class="contact-form-wrapper">
+                        <h4 class="fw-bold text-primary-dark mb-4">Send a Message</h4>
+                        <form action="#" method="POST">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="firstName" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" placeholder="John" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" placeholder="Doe" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" placeholder="name@company.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="phone" class="form-label">Phone Number <span class="text-muted fw-normal">(Optional)</span></label>
+                                    <input type="tel" class="form-control" id="phone" placeholder="+254...">
+                                </div>
+                                <div class="col-12">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" class="form-control" id="subject" placeholder="How can we help you?" required>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="5" placeholder="Tell us about your project or inquiry..." required></textarea>
+                                </div>
+                                <div class="col-12 mt-4">
+                                    <button type="submit" class="btn btn-gold w-100">Send Message <i class="fas fa-paper-plane ms-2"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-blue pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row border-bottom border-secondary border-opacity-50 pb-5 mb-4 align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <h2 class="fw-bold text-white mb-0" style="font-size: 2.2rem;">Let's build a smarter communication strategy.</h2>
+                </div>
+                <div class="col-lg-3 text-lg-center mb-4 mb-lg-0">
+                    <a href="contact.html" class="btn btn-gold px-4 py-2">Get in Touch <i class="fas fa-arrow-right ms-2"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <div class="d-flex flex-column align-items-lg-end gap-2 text-light small">
+                        <!-- Updated Email -->
+                        <p class="mb-0"><a href="mailto:millimarkkenya@gmail.com" class="text-light text-decoration-none"><i class="far fa-envelope me-2 text-secondary"></i> millimarkkenya@gmail.com</a></p>
+                        <p class="mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> Nairobi, Kenya</p>
+                        <div>
+                            <a href="#" class="footer-social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                            <!-- Added Instagram Icon -->
+                            <a href="https://instagram.com/Millimark_ke" target="_blank" class="footer-social-icon"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <a href="index.html">
+                        <img src="millmark.jpeg" alt="Millimark Logo" height="30" class="footer-logo">
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-inline mb-0 text-md-end">
+                        <li class="list-inline-item"><a href="index.html" class="text-secondary text-decoration-none small mx-2">Home</a></li>
+                        <li class="list-inline-item"><a href="about.html" class="text-secondary text-decoration-none small mx-2">About</a></li>
+                        <li class="list-inline-item"><a href="services.html" class="text-secondary text-decoration-none small mx-2">Services</a></li>
+                        <li class="list-inline-item"><a href="work.html" class="text-secondary text-decoration-none small mx-2">Work</a></li>
+                        <li class="list-inline-item"><a href="insights.html" class="text-secondary text-decoration-none small mx-2">Insights</a></li>
+                        <li class="list-inline-item"><a href="contact.html" class="text-secondary text-decoration-none small mx-2">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

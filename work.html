@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concours d'Elegance 2025 - Millimark Communications</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-dark: #0b1324;
+            --accent-gold: #f4a62a;
+            --text-grey: #8a94a6;
+            --bg-light: #f8f9fa;
+            --bg-lighter: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            background-color: var(--bg-lighter);
+        }
+
+        /* Utility Classes */
+        .text-gold { color: var(--accent-gold) !important; }
+        .text-primary-dark { color: var(--primary-dark) !important; }
+        .bg-dark-blue { background-color: var(--primary-dark) !important; color: white; }
+        .section-padding { padding: 80px 0; }
+        
+        .small-caps {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* Buttons */
+        .btn-gold {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            font-weight: 600;
+            border-radius: 50px;
+            padding: 0.6rem 1.5rem;
+            border: 2px solid var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background-color: transparent;
+            color: var(--accent-gold);
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--primary-dark);
+            padding: 1rem 0;
+        }
+        .navbar-brand img {
+            mix-blend-mode: screen; 
+            object-fit: contain;
+        }
+        .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            position: relative;
+            transition: 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: white !important;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
+
+        /* Case Study Hero Section */
+        .case-study-hero {
+            position: relative;
+            padding: 180px 0 100px 0;
+            background: linear-gradient(rgba(11, 19, 36, 0.85), rgba(11, 19, 36, 0.95)), url('image.png') no-repeat center center / cover;
+            color: white;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .meta-grid {
+            background-color: var(--bg-light);
+            border-top: 4px solid var(--accent-gold);
+            padding: 40px 0;
+        }
+        
+        .meta-label {
+            font-size: 0.8rem;
+            color: var(--text-grey);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        /* Content Styling */
+        h2.section-title {
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        h2.section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-gold);
+        }
+
+        .content-block {
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        /* Numbered List for Involvement */
+        .involvement-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .involvement-item {
+            display: flex;
+            margin-bottom: 2rem;
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .involvement-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            line-height: 1;
+            margin-right: 25px;
+            opacity: 0.8;
+        }
+
+        .involvement-text h4 {
+            color: var(--primary-dark);
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .involvement-text p {
+            margin-bottom: 0;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer-social-icon {
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+        .footer-social-icon:hover {
+            color: var(--accent-gold);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="index.html" target="_blank">
+                <img src="millmark.jpeg" alt="Millimark Logo" height="60">
+            </a>
+            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html" target="_blank">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" target="_blank">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html" target="_blank">Services</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="work.html" target="_blank">Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="insights.html" target="_blank">Insights</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html" target="_blank">Contact</a></li>
+                </ul>
+                <div class="d-none d-lg-block">
+                    <a href="#" target="_blank" class="btn btn-gold">Get in Touch <i class="fas fa-arrow-right ms-1" style="font-size: 0.8rem;"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="case-study-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <p class="small-caps text-gold mb-3">Case Study &mdash; Event Sponsorship</p>
+                    <h1 class="display-4 fw-bold mb-4 lh-sm">
+                        Concours d'Elegance 2025
+                    </h1>
+                    <p class="fs-4 text-light opacity-75" style="max-width: 800px;">
+                        Activating a Title Sponsorship Through Brand Experience and Stakeholder Engagement
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Meta Information -->
+    <section class="meta-grid">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4 col-lg-2">
+                    <div class="meta-label">Project</div>
+                    <div class="meta-value">Concours d'Elegance</div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <div class="meta-label">Location</div>
+                    <div class="meta-value">Nairobi, Kenya</div>
+                </div>
+                <div class="col-md-4 col-lg-2">
+                    <div class="meta-label">Year</div>
+                    <div class="meta-value">2025</div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="meta-label">Organisation</div>
+                    <div class="meta-value">Stanbic Bank Kenya</div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="meta-label">Sponsorship</div>
+                    <div class="meta-value">Title Sponsor</div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="meta-label">Area of involvement</div>
+                    <div class="meta-value text-primary-dark">Brand and Marketing <span class="text-gold mx-2">|</span> Event Planning <span class="text-gold mx-2">|</span> Stakeholder Engagement</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="section-padding">
+        <div class="container">
+            <div class="row">
+                <!-- Left Column (Overview & Challenge) -->
+                <div class="col-lg-6 pe-lg-5 mb-5 mb-lg-0">
+                    <div class="content-block">
+                        <h2 class="section-title">Project Overview</h2>
+                        <p>The Concours d'Elegance is a prominent annual motoring and lifestyle event in Kenya, bringing together classic and vintage automobiles, motorcycles, motoring enthusiasts, corporate organisations, partners and members of the public.</p>
+                        <p>The 2025 edition presented an opportunity to bring together brand visibility, corporate engagement and event experience on a significant public platform.</p>
+                        <p>Stanbic Bank Kenya was the title sponsor of the event, placing its brand at the centre of the event's identity and creating an important responsibility to ensure that the sponsorship was reflected through meaningful brand presence, stakeholder engagement and a well-coordinated experience.</p>
+                        <p>During this period, Millimark's founder was part of Stanbic Bank's Brand and Marketing Department, which was tasked with the planning and organisation of the event. The involvement extended across planning and coordination, engagement with the event organiser and external partners, brand visibility, stakeholder engagement and the coordination of the bank's stakeholders on the event day.</p>
+                    </div>
+
+                    <div class="content-block mt-5 pt-3">
+                        <h2 class="section-title">The Challenge</h2>
+                        <p class="lead fw-semibold text-primary-dark mb-4">Translating Sponsorship into Brand Experience</p>
+                        <p>A title sponsorship involves more than placing a brand name on event materials. It requires coordination across multiple activities to ensure that the sponsoring organisation is appropriately represented and that its relationship with the event is reflected in the overall experience.</p>
+                        <p>For Stanbic Bank, this meant coordinating the bank's participation while working alongside the event organiser and external partners.</p>
+                        <p class="fw-semibold mt-4 mb-3">Several considerations were central to the process:</p>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item bg-transparent border-0 ps-0 border-bottom border-light"><i class="fas fa-check text-gold me-2"></i> Ensuring consistent brand visibility across the event.</li>
+                            <li class="list-group-item bg-transparent border-0 ps-0 border-bottom border-light"><i class="fas fa-check text-gold me-2"></i> Coordinating with the event organiser and external partners.</li>
+                            <li class="list-group-item bg-transparent border-0 ps-0 border-bottom border-light"><i class="fas fa-check text-gold me-2"></i> Supporting the planning and execution of sponsorship-related activities.</li>
+                            <li class="list-group-item bg-transparent border-0 ps-0 border-bottom border-light"><i class="fas fa-check text-gold me-2"></i> Facilitating engagement with the bank's guests and stakeholders.</li>
+                            <li class="list-group-item bg-transparent border-0 ps-0"><i class="fas fa-check text-gold me-2"></i> Coordinating the bank's stakeholders and related activities during the event.</li>
+                        </ul>
+                        <p>These responsibilities required collaboration, attention to detail and an understanding of how brand objectives translate into practical event activities.</p>
+                    </div>
+                </div>
+
+                <!-- Right Column (Involvement) -->
+                <div class="col-lg-6 ps-lg-4">
+                    <h2 class="section-title">Our Involvement</h2>
+                    <p class="mb-5 text-muted fs-5">The founder's contribution was undertaken as part of the Brand and Marketing Department at Stanbic Bank, with involvement spanning the planning, coordination and event-day execution process.</p>
+                    
+                    <ul class="involvement-list">
+                        <!-- Item 1 -->
+                        <li class="involvement-item">
+                            <div class="involvement-number">1</div>
+                            <div class="involvement-text">
+                                <h4>Planning and coordination</h4>
+                                <p>Contributed to the planning and coordination activities leading up to the event, supporting the organisation of the bank's participation and the activities associated with its title sponsorship.</p>
+                            </div>
+                        </li>
+                        <!-- Item 2 -->
+                        <li class="involvement-item">
+                            <div class="involvement-number">2</div>
+                            <div class="involvement-text">
+                                <h4>Event organiser & external partner coordination</h4>
+                                <p>Worked with the event organiser and external partners to support coordination across the different activities required for the event. This involved collaboration between the bank and the parties responsible for delivering the event experience.</p>
+                            </div>
+                        </li>
+                        <!-- Item 3 -->
+                        <li class="involvement-item">
+                            <div class="involvement-number">3</div>
+                            <div class="involvement-text">
+                                <h4>Brand visibility and sponsorship representation</h4>
+                                <p>Supported activities relating to Stanbic Bank's brand visibility as title sponsor, helping ensure that the bank's presence was reflected within the event environment.</p>
+                            </div>
+                        </li>
+                        <!-- Item 4 -->
+                        <li class="involvement-item">
+                            <div class="involvement-number">4</div>
+                            <div class="involvement-text">
+                                <h4>Guest and stakeholder engagement</h4>
+                                <p>Participated in the coordination and engagement of the bank's guests and stakeholders, recognising the importance of a considered experience for the individuals and organisations associated with the sponsorship.</p>
+                            </div>
+                        </li>
+                        <!-- Item 5 -->
+                        <li class="involvement-item">
+                            <div class="involvement-number">5</div>
+                            <div class="involvement-text">
+                                <h4>Event-day stakeholder coordination</h4>
+                                <p>Supported the coordination of Stanbic Bank's stakeholders on the event day, helping manage the bank's participation and the activities associated with its presence at the event.</p>
+                            </div>
+                        </li>
+                        <!-- Item 6 -->
+                        <li class="involvement-item">
+                            <div class="involvement-number">6</div>
+                            <div class="involvement-text">
+                                <h4>Sponsorship and partnership coordination</h4>
+                                <p>Contributed to coordinating sponsorship- and partnership-related activities on the event day, working across the relationships and interactions that formed part of the bank's involvement.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Next Case Study Call to Action -->
+    <section class="py-5 bg-dark-blue text-center">
+        <div class="container">
+            <h3 class="text-white mb-4">Ready to elevate your brand's event presence?</h3>
+            <a href="#" target="_blank" class="btn btn-gold px-5 py-3 fs-5">Discuss Your Project <i class="fas fa-arrow-right ms-2"></i></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-blue pt-5 pb-4 border-top border-secondary border-opacity-25">
+        <div class="container">
+            <div class="row border-bottom border-secondary border-opacity-50 pb-5 mb-4 align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <h2 class="fw-bold text-white mb-0" style="font-size: 2.2rem;">Let's build a smarter communication strategy.</h2>
+                </div>
+                <div class="col-lg-3 text-lg-center mb-4 mb-lg-0">
+                    <a href="#" target="_blank" class="btn btn-gold">Get in Touch <i class="fas fa-arrow-right ms-2"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <div class="d-flex flex-column align-items-lg-end gap-2 text-light small">
+                        <p class="mb-0"><i class="far fa-envelope me-2 text-secondary"></i> @communicationfirm.com</p>
+                        <p class="mb-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> Nairobi, kenya</p>
+                        <div>
+                            <a href="#" target="_blank" class="footer-social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" target="_blank" class="footer-social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" target="_blank" class="footer-social-icon"><i class="fas fa-link"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <a href="index.html" target="_blank" class="text-secondary small text-decoration-none text-uppercase" style="letter-spacing: 1px;">Millimark Communications</a>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-inline mb-0 text-md-end">
+                        <li class="list-inline-item"><a href="index.html" target="_blank" class="text-secondary text-decoration-none small mx-2">Home</a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">About</a></li>
+                        <li class="list-inline-item"><a href="services.html" target="_blank" class="text-secondary text-decoration-none small mx-2">Services</a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">Work</a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">Insights</a></li>
+                        <li class="list-inline-item"><a href="#" target="_blank" class="text-secondary text-decoration-none small mx-2">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
